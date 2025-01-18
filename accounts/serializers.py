@@ -9,10 +9,8 @@ class SignupSerializer(serializers.ModelSerializer):
             'password': {'write_only': True}
         }
 
-    def create(self, validated_data):
-        user = User.objects.create_user(
-            username=validated_data['username'],
-            password=validated_data['password'],
-            nickname=validated_data['nickname']
-        )
-        return user
+    def validate_username(self, value):
+        # 연속된 공백을 방지
+        if "  " in value:
+            raise serializers.ValidationError("Username cannot contain multiple consecutive spaces.")
+        return value
