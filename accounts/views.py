@@ -5,6 +5,7 @@ from rest_framework import status
 from .serializers import SignupSerializer
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
+from .models import User
 
 
 class SignupView(APIView):
@@ -34,9 +35,32 @@ class LoginView(APIView):
         if user:
             # JWT 토큰 발급
             refresh = RefreshToken.for_user(user)
+            access_token = str(refresh.access_token)
+
+            # Refresh Token을 서버(DB)에 저장
+            user.refresh_token = str(refresh)
+            user.save()
+
             return Response({
-                "token": str(refresh.access_token)
+                "access_token": access_token
             }, status=status.HTTP_200_OK)
 
         # 인증 실패
         return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+class TokenRefreshView(APIView):
+    def post(self, request):
+        refresh_token = request.data.get('refresh_token')
+
+        try:
+            # Refresh Token으로 사용자 찾기
+            user = User.objects.get(refresh_token=refresh_token)
+            refresh = RefreshToken(refresh_token)
+
+            # 새로운 Access Token 생성
+            return Response({
+                "access_token": str(refresh.access_token)
+            }, status=status.HTTP_200_OK)
+        except User.DoesNotExist:
+            return Response({"error": "Invalid refresh token"}, status=status.HTTP_401_UNAUTHORIZED)
