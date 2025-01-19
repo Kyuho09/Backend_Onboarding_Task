@@ -22,7 +22,8 @@ class SignupView(APIView):
                 "roles": [{"role": "USER"}]
             }, status=status.HTTP_201_CREATED)
         # 유효하지 않은 데이터 응답
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"error": "Invalid input data", "details": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class LoginView(APIView):
@@ -46,7 +47,8 @@ class LoginView(APIView):
             }, status=status.HTTP_200_OK)
 
         # 인증 실패
-        return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({"error": "Incorrect username or password"}, status=status.HTTP_401_UNAUTHORIZED)
+
 
 
 class TokenRefreshView(APIView):
