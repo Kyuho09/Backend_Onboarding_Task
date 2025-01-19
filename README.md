@@ -74,3 +74,26 @@ API 문서를 자동으로 생성하고 UI를 통해 테스트할 수 있어 개
 
 **Refresh Token**:
 ![Refresh Token](https://github.com/Kyuho09/Backend_Onboarding_Task/blob/main/images/refresh.png)
+
+<br>
+
+## Django 기본 이해
+
+### Django란 무엇인가?
+Django는 파이썬으로 작성된 오픈소스 웹 프레임워크로, 웹 애플리케이션을 빠르게 개발하고 확장할 수 있도록 돕습니다. **MTV(Model-Template-View)** 구조를 기반으로 하며, 강력한 ORM(Object Relational Mapping)을 통해 데이터베이스와의 상호작용을 간단하게 처리할 수 있습니다. 또한, 보안 기능, 인증 시스템, 관리 인터페이스, URL 라우팅 등 웹 개발에 필요한 다양한 기능을 내장하고 있어 효율적인 개발이 가능합니다.
+
+### Middleware란 무엇인가?
+Middleware는 Django 애플리케이션에서 요청(Request)과 응답(Response) 사이에 처리되어야 할 작업을 정의하는 구성 요소입니다. 요청이 뷰(View)에 도달하기 전 또는 응답이 클라이언트에 도달하기 전에 특정 작업을 수행할 수 있도록 도와줍니다. 예를 들어, **인증, 세션 관리, 보안 기능** 등을 처리하는 데 사용됩니다.
+
+---
+
+## JWT 기본 이해
+
+### JWT란 무엇인가?
+JWT(Json Web Token)는 **JSON 포맷**으로 정보를 안전하게 주고받기 위한 토큰 기반 인증 메커니즘입니다. 클라이언트와 서버 간의 인증 정보를 포함하며, Base64로 인코딩되어 전달됩니다. 토큰은 크게 **Header(헤더)**, **Payload(내용)**, **Signature(서명)**로 구성됩니다.
+
+- **Header**: 알고리즘과 토큰 유형을 명시
+- **Payload**: 유저 정보 및 토큰의 데이터가 포함
+- **Signature**: 토큰의 유효성을 검증하기 위해 생성된 서명
+
+JWT는 주로 인증 및 권한 부여에 사용되며, **Stateless**하기 때문에 서버에서 세션을 유지할 필요 없이 빠르고 확장성이 높은 인증을 제공합니다.
