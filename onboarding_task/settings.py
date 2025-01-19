@@ -141,6 +141,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',  # 기본적으로 인증 없이 접근 가능
+    ),
 }
 
 SIMPLE_JWT = {
