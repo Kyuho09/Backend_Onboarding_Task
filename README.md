@@ -54,12 +54,20 @@ API 문서를 자동으로 생성하고 UI를 통해 테스트할 수 있어 개
 
 <br>
 
-# 기능 테스트트
+# 기능 테스트
 **Sign Up**:
 ![Sign Up](https://github.com/Kyuho09/Backend_Onboarding_Task/blob/main/images/Signin.png)
 
+<br>
+
+---
+
 **Log In**:
 ![Log in](https://github.com/Kyuho09/Backend_Onboarding_Task/blob/main/images/login.png)
+
+<br>
+
+---
 
 **Refresh Token**:
 ![Refresh Token](https://github.com/Kyuho09/Backend_Onboarding_Task/blob/main/images/refresh.png)
