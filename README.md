@@ -43,13 +43,16 @@ Backend_Onboarding_Task는 Django를 활용하여 RESTful API를 개발하고, �
 <br>
 
 # 기술적 의사결정
-**Django REST Framework**
+**Django REST Framework** : 
+
 Django REST Framework는 강력한 Serializer와 뷰셋을 통해 API 개발을 효율적으로 할 수 있어 선택하였습니다.
 
-**Swagger (drf-yasg)**
+**Swagger (drf-yasg)** : 
+
 API 문서를 자동으로 생성하고 UI를 통해 테스트할 수 있어 개발 및 유지보수에 유리합니다.
 
-**Gunicorn & Nginx**
+**Gunicorn & Nginx** : 
+
 배포 과정에서 Gunicorn은 WSGI 서버로, Nginx는 정적 파일 제공과 보안 강화를 위해 사용하였습니다.
 
 <br>
